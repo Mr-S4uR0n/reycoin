@@ -6,8 +6,8 @@ from multiprocessing import Process
 
 import requests
 
-from denaro.constants import ENDIAN
-from denaro.helpers import string_to_bytes, timestamp
+from reycoin.constants import ENDIAN
+from reycoin.helpers import string_to_bytes, timestamp
 
 
 def get_transactions_merkle_tree(transactions):
