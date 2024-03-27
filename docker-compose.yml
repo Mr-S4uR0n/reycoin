@@ -2,47 +2,47 @@ version: "3.8"
 
 services:
 
-  denaro-node:
+  reycoin-node:
     build:
       context: ./
       dockerfile: ./Dockerfile
-    image: denaro/denaro:0.2.0
-    container_name: denaro-node
+    image: reycoin/reycoin:0.2.0
+    container_name: reycoin-node
     environment:
-      DENARO_DATABASE_USER: "user"
-      DENARO_DATABASE_PASSWORD: "password"
-      DENARO_DATABASE_NAME: "denaro"
-      DENARO_DATABASE_HOST: "denaro-postgres"
+      REYCOIN_DATABASE_USER: "user"
+      REYCOIN_DATABASE_PASSWORD: "password"
+      REYCOIN_DATABASE_NAME: "reycoin"
+      REYCOIN_DATABASE_HOST: "reycoin-postgres"
     tty: true
     ports:
       - 3006:3006
     networks:
-      - denaro
+      - reycoin
 
-  denaro-postgres:
+  reycoin-postgres:
     image: postgres:14.1-alpine3.15
-    container_name: denaro-postgres
+    container_name: reycoin-postgres
     environment:
       POSTGRES_USER: "user"
       POSTGRES_PASSWORD: "password"
-      POSTGRES_DB: "denaro"
-      POSTGRES_HOST: "denaro-postgres"
+      POSTGRES_DB: "reycoin"
+      POSTGRES_HOST: "reycoin-postgres"
     ports:
       - "5432:5432"
     volumes:
       - ./postgres:/var/lib/postgresql
       - ./schema.sql:/docker-entrypoint-initdb.d/create_tables.sql
     networks:
-      - denaro
+      - reycoin
 
-  denaro-adminer:
+  reycoin-adminer:
     image: adminer:4.8.1
-    container_name: denaro-adminer
+    container_name: reycoin-adminer
     ports:
       - "8080:8080"
     networks:
-      - denaro
+      - reycoin
 
 networks:
-  denaro:
+  reycoin:
     driver: bridge
