@@ -3,15 +3,15 @@ from os import environ
 
 from asyncpg import UndefinedTableError
 
-from denaro import Database
+from reycoin import Database
 
 
 async def run():
     db: Database = await Database.create(
-        user=environ.get('DENARO_DATABASE_USER', 'denaro'),
-        password=environ.get('DENARO_DATABASE_PASSWORD', ''),
-        database=environ.get('DENARO_DATABASE_NAME', 'denaro'),
-        host=environ.get('DENARO_DATABASE_HOST', None),
+        user=environ.get('REYCOIN_DATABASE_USER', 'reycoin'),
+        password=environ.get('REYCOIN_DATABASE_PASSWORD', ''),
+        database=environ.get('REYCOIN_DATABASE_NAME', 'reycoin'),
+        host=environ.get('REYCOIN_DATABASE_HOST', None),
         ignore=True
     )
     async with db.pool.acquire() as connection:
