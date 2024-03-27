@@ -8,6 +8,6 @@ RUN apt-get install -y libgmp3-dev gcc
 
 RUN pip install -r requirements.txt
 
-RUN sed -i 's/node.main:app/denaro.node.main:app/' run_node.py
+RUN sed -i 's/node.main:app/reycoin.node.main:app/' run_node.py
 
 CMD ["python", "run_node.py"]
