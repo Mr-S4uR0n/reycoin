@@ -24,7 +24,7 @@ class Database:
     is_indexed = False
 
     @staticmethod
-    async def create(user='denaro', password='', database='denaro', host='127.0.0.1', ignore: bool = False):
+    async def create(user='reycoin', password='', database='reycoin', host='127.0.0.1', ignore: bool = False):
         self = Database()
         self.pool = await asyncpg.create_pool(
             user=user,

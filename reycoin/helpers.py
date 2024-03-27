@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO if '--nologs' not in sys.argv else loggin
 
 
 def log(s):
-    logging.getLogger('denaro').info(s)
+    logging.getLogger('reycoin').info(s)
 
 
 ic.configureOutput(outputFunction=log)
@@ -122,7 +122,7 @@ def string_to_point(string: str) -> Point:
 
 
 async def transaction_to_json(tx, verify: bool = False, address: str = None):
-    from denaro.transactions import CoinbaseTransaction
+    from reycoin.transactions import CoinbaseTransaction
     if isinstance(tx, CoinbaseTransaction):
         transaction = {'is_coinbase': True, 'hash': tx.hash(), 'block_hash': tx.block_hash, 'outputs': []}
     else:
