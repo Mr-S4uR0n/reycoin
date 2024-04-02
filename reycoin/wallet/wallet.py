@@ -24,7 +24,7 @@ Database.credentials = {
 
 
 async def main():
-    parser = argparse.ArgumentParser(description='Denaro wallet')
+    parser = argparse.ArgumentParser(description='Reycoin wallet')
     parser.add_argument('command', metavar='command', type=str, help='action to do with the wallet', choices=['createwallet', 'send', 'balance'])
     parser.add_argument('-to', metavar='recipient', type=str, required=False)
     parser.add_argument('-d', metavar='amount', type=str, required=False)
