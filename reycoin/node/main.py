@@ -19,14 +19,14 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 
-from denaro.helpers import timestamp, sha256, transaction_to_json
-from denaro.manager import create_block, get_difficulty, Manager, get_transactions_merkle_tree, \
+from reycoin.helpers import timestamp, sha256, transaction_to_json
+from reycoin.manager import create_block, get_difficulty, Manager, get_transactions_merkle_tree, \
     split_block_content, calculate_difficulty, clear_pending_transactions, block_to_bytes, get_transactions_merkle_tree_ordered
-from denaro.node.nodes_manager import NodesManager, NodeInterface
-from denaro.node.utils import ip_is_local
-from denaro.transactions import Transaction, CoinbaseTransaction
-from denaro import Database
-from denaro.constants import VERSION, ENDIAN
+from reycoin.node.nodes_manager import NodesManager, NodeInterface
+from reycoin.node.utils import ip_is_local
+from reycoin.transactions import Transaction, CoinbaseTransaction
+from reycoin import Database
+from reycoin.constants import VERSION, ENDIAN
 
 
 limiter = Limiter(key_func=get_remote_address)
@@ -178,10 +178,10 @@ async def sync_blockchain(node_url: str = None):
 async def startup():
     global db
     db = await Database.create(
-        user=environ.get('DENARO_DATABASE_USER', 'denaro'),
-        password=environ.get('DENARO_DATABASE_PASSWORD', ''),
-        database=environ.get('DENARO_DATABASE_NAME', 'denaro'),
-        host=environ.get('DENARO_DATABASE_HOST', None)
+        user=environ.get('REYCOIN_DATABASE_USER', 'reycoin'),
+        password=environ.get('REYCOIN_DATABASE_PASSWORD', ''),
+        database=environ.get('REYCOIN_DATABASE_NAME', 'reycoin'),
+        host=environ.get('REYCOIN_DATABASE_HOST', None)
     )
 
 

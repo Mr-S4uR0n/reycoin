@@ -11,10 +11,10 @@ from fastecdsa import keys, curve
 dir_path = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, dir_path + "/../..")
 
-from denaro.wallet.utils import string_to_bytes
-from denaro.transactions import Transaction, TransactionOutput, TransactionInput
-from denaro.constants import CURVE
-from denaro.helpers import point_to_string, sha256, string_to_point
+from reycoin.wallet.utils import string_to_bytes
+from reycoin.transactions import Transaction, TransactionOutput, TransactionInput
+from reycoin.constants import CURVE
+from reycoin.helpers import point_to_string, sha256, string_to_point
 
 NODE_URL = 'https://denaro-node.gaetano.eu.org'
 
@@ -86,7 +86,7 @@ def create_transaction(private_keys, receiving_address, amount, message: bytes =
 
 
 async def main():
-    parser = argparse.ArgumentParser(description='Denaro wallet')
+    parser = argparse.ArgumentParser(description='Reycoin wallet')
     parser.add_argument('command', metavar='command', type=str, help='action to do with the wallet', choices=['createwallet', 'send', 'balance'])
     parser.add_argument('-to', metavar='recipient', type=str, required=False)
     parser.add_argument('-d', metavar='amount', type=str, required=False)

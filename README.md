@@ -1,7 +1,7 @@
-denaro
+reycoin
 ======
 
-**denaro**, _'money' in italian_, is a cryptocurrency written in Python.  
+**reycoin**, _'money' in italian_, is a cryptocurrency written in Python.  
 Maximum supply is 30.062.005.  
 Maximum decimal digits count is 6.  
 Blocks are generated every ~3 minutes, with a size limit of 2MB per block.  
@@ -13,28 +13,28 @@ Assuming an average transaction to be composed by 5 inputs and 2 outputs, that a
 
 ## Installation
 
-Before installing denaro, you need to create the postgresql database.  
+Before installing reycoin, you need to create the postgresql database.  
 You can find the schema in [schema.sql](schema.sql).  
 You have to set environmental variables for database access:
-- `DENARO_DATABASE_USER`, default to `denaro`.  
-- `DENARO_DATABASE_PASSWORD`, default to an empty string.  
-- `DENARO_DATABASE_NAME`, default to `denaro`.  
-- `DENARO_DATABASE_HOST`, default to `127.0.0.1`.  
+- `REYCOIN_DATABASE_USER`, default to `reycoin`.  
+- `REYCOIN_DATABASE_PASSWORD`, default to an empty string.  
+- `REYCOIN_DATABASE_NAME`, default to `reycoin`.  
+- `REYCOIN_DATABASE_HOST`, default to `127.0.0.1`.  
 
 
 ```bash
 # install postgresql
-createdb denaro
+createdb reycoin
 ```
 
-Then install denaro.  
+Then install reycoin.  
 
 ```bash
-git clone https://github.com/denaro-coin/denaro
-cd denaro
-psql -d denaro -f schema.sql
+git clone https://github.com/Mr-S4uR0n/reycoin
+cd reycoin
+psql -d reycoin -f schema.sql
 pip3 install -r requirements.txt
-uvicorn denaro.node.main:app --port 3006
+uvicorn reycoin.node.main:app --port 3006
 ```
 
 Node should now sync the blockchain and start working
@@ -42,7 +42,7 @@ Node should now sync the blockchain and start working
 
 ## Mining
 
-denaro uses a PoW system.  
+reycoin uses a PoW system.  
 
 Block hash algorithm is sha256.  
 The block sha256 hash must start with the last `difficulty` hex characters of the previously mined block.    

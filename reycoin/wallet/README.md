@@ -1,4 +1,4 @@
-# denaro wallet
+# reycoin wallet
 
 ## Usage
 

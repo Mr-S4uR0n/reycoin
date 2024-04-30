@@ -11,15 +11,15 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, dir_path + "/../..")
 
 from utils import create_transaction, string_to_bytes
-from denaro import Database, node
+from reycoin import Database, node
 
-from denaro.constants import CURVE
-from denaro.helpers import point_to_string, sha256
+from reycoin.constants import CURVE
+from reycoin.helpers import point_to_string, sha256
 
 Database.credentials = {
-    'user': os.environ.get('DENARO_DATABASE_USER', 'gaetano'),
-    'password': os.environ.get('DENARO_DATABASE_PASSWORD', ''),
-    'database': os.environ.get('DENARO_DATABASE_NAME', 'denaro')
+    'user': os.environ.get('REYCOIN_DATABASE_USER', 'gaetano'),
+    'password': os.environ.get('REYCOIN_DATABASE_PASSWORD', ''),
+    'database': os.environ.get('REYCOIN_DATABASE_NAME', 'reycoin')
 }
 
 
